@@ -1,0 +1,80 @@
+Colcon Ros2 un içindeki oluşturma araçları üzerine bir yinelemedir.catkin_make, catkin_make_isolated, catkin_tools and ament_tools gibi bir tool.
+
+İndirmek için:
+sudo apt install python3-colcon-common-extensions
+
+Ros workspace belirli bir yapıdadır.Genellikle src bir altdizindir.Altdizinin içinde ROS’un kaynak kodları bulunur. Genellikle bu dizin başlar yoksa da boş dizin başlar.
+
+Colcon kaynak yapılandırmalarının dışında kalır.Defaultta src nin eşdeğerleri olarak şu dizinleri oluşturacaktır.
+
+Build directory:ara dosyaların saklandığı yerdir.Her paket için altklasör oluşturulur.Çağrıldığında kullanılabilmesi için.
+
+Install directory:Yükleme dizini her paketin yükleneceği yer.Defaultta her paket ayrı altdizinlere yüklenir.
+
+Log directory:Bu dizin her colcon çağrıldığında çağrı hakkında bilgi verir.
+
+Workspace imizi barındıran dizin oluşturmak için :
+ mkdir -p  ~/nameofworkspace_ws/src
+ cd      ~/ros2_ws
+
+Workspace e colcon u eklemek için :
+colcon build --symlink-install
+
+Test etmek için :
+colcon test
+
+Kütüphaneleri kullanmadan önce pathe eklemen gerekiyor.Bunun için:
+source install/setup.bash
+
+Enviroment source landıktan sonra colcon tarafından olan yürütülebilir dosyaları çalıştırabiliriz.
+
+Subscriber node çalıştırmak için :
+ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+
+Publisher node çalıştırmak için:
+ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+
+Colcon birçok yapı tipi bulundurur.Önerilen yapı türü ament_cmake ve ament_python. Sadece cmake paketleri de desteklenir.
+
+Kolaylık için şablonu temel alan yeni bit paket oluşturmak için :
+ros2 pkg create kullanabilirsin.
+
+colcon_cd komutu, kabuğun geçerli çalışma dizinini bir paketin dizinine hızlı bir şekilde değiştirmenyi sağlar.
+
+
+Spesifik bir paket  yeri oluşturmak istemezsen paketi coclcon_ignore adlı bir boş dizine yerleştir.
+CMake paketlerinde testleri yapılandırmaktan ve oluşturmaktan kaçınmak istiyorsan :
+ --cmake-args -DBUILD_TESTING=0. 
+
+Tek bir test pakete yüklemek istersen:
+colcon test --packages-select YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG
+
+
+Workspace için directory oluşturmalısın.
+--packages-up-to, istediğin paketi ve tüm bağımlılıklarını oluşturur, ancak çalışma alanının tamamını oluşturmaz (zaman kazandırır) 
+
+--symlink-install, python komut dosyalarını her değiştirdiğinde  yeniden oluşturma zorunluluğundan kurtarır 
+
+--event-handlers console_direct+ derleme sırasında konsol output  gösterir (aksi takdirde log dizininde bulunabilir) 
+ 
+install dizini, çalışma alanının kurulum dosyalarının bulunduğu yerdir ve bu dosyaları üst eklemede source lamak için kullanabilirsiniz. 
+ 
+
+not: the overlay gets prepended to the path, and takes precedence over the underlay, as you saw with your modified turtlesim.
+
+ bir paket oluşturmak için dizinin içinde şunu yapmalısın.:
+ros2 pkg create --build-type ament_python <package_name>
+
+ör:
+ros2 pkg create --build-type ament_python --node-name my_node my_package
+
+
+Sadece my_package oluşturmak için:
+colcon build --packages-select my_package
+
+Workspace in içinde şu komutu çalıştır.
+source install/local_setup.bash
+
+
+Talker kodu için örnek :
+wget https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
