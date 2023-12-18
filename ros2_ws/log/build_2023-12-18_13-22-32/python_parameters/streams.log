@@ -1,0 +1,37 @@
+[0.397s] Invoking command in '/home/sevval/ros2_ws/src/python_parameters': PYTHONPATH=/home/sevval/ros2_ws/build/python_parameters/prefix_override:/home/sevval/ros2_ws/install/python_parameters/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/python_parameters build --build-base /home/sevval/ros2_ws/build/python_parameters/build install --record /home/sevval/ros2_ws/build/python_parameters/install.log --install-scripts $base/lib/python_parameters --single-version-externally-managed
+[0.493s] running egg_info
+[0.493s] creating ../../build/python_parameters/python_parameters.egg-info
+[0.493s] writing ../../build/python_parameters/python_parameters.egg-info/PKG-INFO
+[0.493s] writing dependency_links to ../../build/python_parameters/python_parameters.egg-info/dependency_links.txt
+[0.493s] writing entry points to ../../build/python_parameters/python_parameters.egg-info/entry_points.txt
+[0.493s] writing requirements to ../../build/python_parameters/python_parameters.egg-info/requires.txt
+[0.493s] writing top-level names to ../../build/python_parameters/python_parameters.egg-info/top_level.txt
+[0.494s] writing manifest file '../../build/python_parameters/python_parameters.egg-info/SOURCES.txt'
+[0.510s] reading manifest file '../../build/python_parameters/python_parameters.egg-info/SOURCES.txt'
+[0.510s] writing manifest file '../../build/python_parameters/python_parameters.egg-info/SOURCES.txt'
+[0.510s] running build
+[0.510s] running build_py
+[0.510s] creating /home/sevval/ros2_ws/build/python_parameters/build
+[0.510s] creating /home/sevval/ros2_ws/build/python_parameters/build/lib
+[0.510s] creating /home/sevval/ros2_ws/build/python_parameters/build/lib/python_parameters
+[0.510s] copying python_parameters/python_parameters_node.py -> /home/sevval/ros2_ws/build/python_parameters/build/lib/python_parameters
+[0.511s] copying python_parameters/__init__.py -> /home/sevval/ros2_ws/build/python_parameters/build/lib/python_parameters
+[0.511s] running install
+[0.511s] running install_lib
+[0.511s] creating /home/sevval/ros2_ws/install/python_parameters/lib/python3.8/site-packages/python_parameters
+[0.512s] copying /home/sevval/ros2_ws/build/python_parameters/build/lib/python_parameters/python_parameters_node.py -> /home/sevval/ros2_ws/install/python_parameters/lib/python3.8/site-packages/python_parameters
+[0.512s] copying /home/sevval/ros2_ws/build/python_parameters/build/lib/python_parameters/__init__.py -> /home/sevval/ros2_ws/install/python_parameters/lib/python3.8/site-packages/python_parameters
+[0.512s] byte-compiling /home/sevval/ros2_ws/install/python_parameters/lib/python3.8/site-packages/python_parameters/python_parameters_node.py to python_parameters_node.cpython-38.pyc
+[0.512s] byte-compiling /home/sevval/ros2_ws/install/python_parameters/lib/python3.8/site-packages/python_parameters/__init__.py to __init__.cpython-38.pyc
+[0.513s] running install_data
+[0.513s] creating /home/sevval/ros2_ws/install/python_parameters/share/ament_index
+[0.513s] creating /home/sevval/ros2_ws/install/python_parameters/share/ament_index/resource_index
+[0.513s] creating /home/sevval/ros2_ws/install/python_parameters/share/ament_index/resource_index/packages
+[0.513s] copying resource/python_parameters -> /home/sevval/ros2_ws/install/python_parameters/share/ament_index/resource_index/packages
+[0.513s] copying package.xml -> /home/sevval/ros2_ws/install/python_parameters/share/python_parameters
+[0.513s] running install_egg_info
+[0.514s] Copying ../../build/python_parameters/python_parameters.egg-info to /home/sevval/ros2_ws/install/python_parameters/lib/python3.8/site-packages/python_parameters-0.0.0-py3.8.egg-info
+[0.514s] running install_scripts
+[0.522s] Installing minimal_param_node script to /home/sevval/ros2_ws/install/python_parameters/lib/python_parameters
+[0.523s] writing list of installed files to '/home/sevval/ros2_ws/build/python_parameters/install.log'
+[0.533s] Invoked command in '/home/sevval/ros2_ws/src/python_parameters' returned '0': PYTHONPATH=/home/sevval/ros2_ws/build/python_parameters/prefix_override:/home/sevval/ros2_ws/install/python_parameters/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/python_parameters build --build-base /home/sevval/ros2_ws/build/python_parameters/build install --record /home/sevval/ros2_ws/build/python_parameters/install.log --install-scripts $base/lib/python_parameters --single-version-externally-managed
