@@ -1,0 +1,79 @@
+Yeni bir ROS 2 paketi oluşturmak için terminalde şu komutu çalıştır: ros2 pkg create --build-type ament_cmake tutorial_interfaces
+
+Oluşturulan paket içinde, özel mesajları ve servisleri tanımlamak için msg ve srv klasörleri oluştur: mkdir msg srv
+
+msg klasörü altında Num.msg dosyasını oluştur ve içine şu satırı yaz: int64 num
+
+Aynı klasörde Sphere.msg dosyasını oluştur ve içine şu satırları yaz:
+geometry_msgs/Point center
+float64 radius
+
+srv klasörü altında AddThreeInts.srv dosyasını oluştur ve içine şu satırları yaz:
+int64 a
+int64 b
+int64 c
+---
+int64 sum
+
+Oluşturulan paketin CMakeLists.txt dosyasını aç ve şu satırları ekleyerek güncelle:
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/Num.msg"
+  "msg/Sphere.msg"
+  "srv/AddThreeInts.srv"
+  DEPENDENCIES geometry_msgs
+)
+
+
+
+Aynı paketin package.xml dosyasına giderek şu satırları ekle:
+<depend>geometry_msgs</depend>
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+
+Terminalde çalışma alanının kök dizininde colcon build --packages-select tutorial_interfaces komutunu çalıştırarak paketi derle.
+
+Çalışma alanını kaynak dosyalarıyla güncellemek için terminalde şu komutu çalıştır: source install/setup.bash
+
+ros2 interface show komutunu kullanarak oluşturulan mesajları ve servisi doğrula.
+
+Önceki öğrenilenlerle yapılan Num.msg ile pub/sub örneğini oluştur.
+
+Yine önceki bilgilerle AddThreeInts.srv kullanarak pub/sub  örneği oluştur.
+
+
+    Terminalde ros2 pkg create --build-type ament_cmake tutorial_interfaces komutunu vererek tutorial_interfaces adında yeni bir ROS 2 paketi oluştur.
+
+Özel Tanımlamalar Yap:
+
+    Num.msg: 64-bit tamsayı içeren özel bir mesaj tanımla.
+    Sphere.msg: geometry_msgs/Point mesajını içeren ve yarıçap bilgisini içeren özel bir mesaj tanımla.
+    AddThreeInts.srv: Üç tamsayı alıp bunların toplamını döndüren bir servis tanımla.
+
+CMakeLists.txt Dosyasını Güncelle:
+
+    Mesaj ve servis tanımlamalarını dil özelliklerine dönüştürmek için CMakeLists.txt dosyasını güncelle.
+
+package.xml Dosyasını Güncelle:
+
+    Gerekli bağımlılıkları ve grup bilgisini package.xml dosyasına ekleyerek güncelle.
+
+Paketi Derle:
+
+    Terminalde çalışma alanının source dizininde colcon build --packages-select tutorial_interfaces komutunu kullanarak paketi derle.
+
+Msg ve Srv Doğrula:
+
+    Ortam ayarı yapıldıktan sonra ros2 interface show komutu ile mesaj ve servis doğrulamalarını yap.
+
+Yeni Arabirimleri Test Et:
+7.1. Num.msg ile Pub/Sub Testi:
+- Yayıncı ve dinleyici örnekleri oluştur.
+- Num mesajı kullanarak tamsayı değerlerini yayınla ve dinle.
+
+7.2. AddThreeInts.srv ile Servis/Client Testi:
+- Servis ve istemci örnekleri oluştur.
+- AddThreeInts servisini kullanarak üç tamsayı toplama işlemini test et.
